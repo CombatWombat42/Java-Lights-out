@@ -30,12 +30,12 @@ public class lightButton extends Button implements ActionListener {
 		} else{
 			this.setBackground(new Color(255,255,255));
 		}
-		System.out.print("toggle: " + id);
+		//System.out.print("toggle: " + id);
 		this.on = !this.on;
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.print(id);
+		//System.out.print(id);
 		this.toggle();
 		mI.toggle();
 		pI.toggle();
@@ -50,5 +50,13 @@ public class lightButton extends Button implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	public void toggleWNeb() {
+		// TODO Auto-generated method stub
+		this.toggle();
+		mI.toggle();
+		pI.toggle();
+		mJ.toggle();
+		pJ.toggle();
+		}
 	
 }
