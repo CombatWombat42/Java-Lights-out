@@ -8,15 +8,16 @@ public class buttonArray {
 	private lightButton[][] buttonArray;
 	final private int ival, jval;
 	public buttonArray(int ival, int jval) {
-		// TODO Auto-generated constructor stub
+		// create an array of lightButtons 
 		buttonArray = new lightButton[ival][jval];
 		this.ival=ival;
 		this.jval=jval;
 	}
 	public void initArray() {
-		// TODO Auto-generated method stub
+		//initalize the array of buttons 
 	    lightButton iM,iP,jM,jP;
 	    lightButton nullButton = new lightButton();
+	    //create the buttons
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
 	    		buttonArray[i][j] = new lightButton();
@@ -24,6 +25,7 @@ public class buttonArray {
 	    		buttonArray[i][j].setLabel(Integer.toString(i) + Integer.toString(j));
 	    	}
 	    }
+	    //add neibors to each button
 	    for(int i = 0;i<ival;i++){
 	    	for(int j = 0;j<jval;j++){
 	    		if(i==0){
@@ -52,7 +54,8 @@ public class buttonArray {
 		
 	}
 	public void randomiseButtons() {
-		// TODO Auto-generated method stub
+		// randomise the buttons to create a hard puzzel
+		// TODO fix the unsolvible problem
 	    Random generator = new Random();
 	    for(int i = 0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
@@ -63,7 +66,7 @@ public class buttonArray {
 	    }
 	}
 	public void addToFrame(JComponent frame) {
-		// TODO Auto-generated method stub
+		// add buttons to the holder
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
 	    		frame.add(buttonArray[i][j]);

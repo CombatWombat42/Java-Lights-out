@@ -15,17 +15,15 @@ public class lightsFrame extends JFrame {
 	public static final int IVAL = 3;
 	private JMenuBar menuBar;
 	private JMenu options;
-	//private JFrame frame;
 	private buttonScroll mLightScroll;
 	
 	public lightsFrame(String string) {
+		// Create a frame that contains the game and a menu for setting options
 		this.setTitle(string);
 	    this.mLightScroll = new buttonScroll(IVAL,JVAL);
 	    initMenu();
-	    //JScrollPane lights= new JScrollPane();
 	    this.setJMenuBar(this.menuBar);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    //frame.add(lights);
 	    this.add(mLightScroll);
 	    this.pack();
 	    this.setSize(400, 400);
@@ -33,7 +31,7 @@ public class lightsFrame extends JFrame {
 	}
 
 	private void initMenu() {
-		// TODO Auto-generated method stub
+		// create the menu for the program
 	    this.menuBar = new JMenuBar();
 	    options = new JMenu("Options");
 	    options.setMnemonic(KeyEvent.VK_O);

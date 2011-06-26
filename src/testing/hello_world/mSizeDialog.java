@@ -12,13 +12,13 @@ import javax.swing.SpinnerNumberModel;
 public class mSizeDialog implements ActionListener {
 	private buttonScroll parent;
 	public mSizeDialog(buttonScroll parent) {
-		// TODO Auto-generated constructor stub
+		// create a zize dialog and store parent
 		this.parent = parent;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		// Generate the dialog to select game size
 		final JDialog sizeDialog = new JDialog();
 		final SpinnerNumberModel xSi = new SpinnerNumberModel(parent.getmIval(),3,20,1);
 		final SpinnerNumberModel ySi = new SpinnerNumberModel(parent.getmJval(),3,20,1);

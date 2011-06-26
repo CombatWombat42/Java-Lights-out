@@ -19,7 +19,7 @@ public class lightButton extends Button implements ActionListener {
 		this.toggle();
 	}
 	public void toggle() {
-		// TODO Auto-generated method stub
+		// toggle the button
 		if(on){
 			this.setBackground(new Color(0,0,0));
 			 
@@ -39,15 +39,14 @@ public class lightButton extends Button implements ActionListener {
 		pJ.toggle();
 	}
 	public void addNeighbors(lightButton jM, lightButton jP, lightButton iM, lightButton iP) {
-			this.mI=iM;
-			this.pI=iP;
-			this.mJ=jM;
-			this.pJ=jP;
-		// TODO Auto-generated method stub
-		
+		//add buttons above, below, left and right	
+		this.mI=iM;
+		this.pI=iP;
+		this.mJ=jM;
+		this.pJ=jP;		
 	}
 	public void toggleWNeb() {
-		// TODO Auto-generated method stub
+		// toggle this button and its neibors
 		this.toggle();
 		this.mI.toggle();
 		this.pI.toggle();

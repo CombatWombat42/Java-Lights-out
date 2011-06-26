@@ -31,7 +31,8 @@ public class buttonScroll extends JPanel {
 	public buttonScroll(int ival, int jval) {
 		this.mIval = ival;
 		this.mJval = jval;
-		// TODO Auto-generated constructor stub
+		// TODO rename to pane
+		// create a pane of buttons
 	    buttonArray mButtons = new buttonArray(ival,jval);
 	    mButtons.initArray();
 
