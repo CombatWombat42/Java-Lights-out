@@ -10,19 +10,18 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class mSizeDialog implements ActionListener {
-	private buttonScroll frame;
-	public mSizeDialog(buttonScroll frame) {
+	private buttonScroll parent;
+	public mSizeDialog(buttonScroll parent) {
 		// TODO Auto-generated constructor stub
-		this.frame = frame;
-		//System.out.print(this.frame.toString());
+		this.parent = parent;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		final JDialog sizeDialog = new JDialog();
-		final SpinnerNumberModel xSi = new SpinnerNumberModel(3,3,20,1);
-		final SpinnerNumberModel ySi = new SpinnerNumberModel(3,3,20,1);
+		final SpinnerNumberModel xSi = new SpinnerNumberModel(parent.getmIval(),3,20,1);
+		final SpinnerNumberModel ySi = new SpinnerNumberModel(parent.getmJval(),3,20,1);
 		JSpinner xSize = new JSpinner(xSi);
 		JSpinner ySize = new JSpinner(ySi);
 		JButton ok = new JButton("Ok");
@@ -30,7 +29,10 @@ public class mSizeDialog implements ActionListener {
 		    @Override
 		    public void actionPerformed(ActionEvent evt) {
 		    	//System.out.print(frame.toString());
-		    	frame.redrawButtons(xSi.getNumber().intValue(), ySi.getNumber().intValue());
+		    	parent.setmIval(xSi.getNumber().intValue());
+		    	parent.setmJval(ySi.getNumber().intValue());
+		    	parent.redrawButtons();
+		    	sizeDialog.setVisible(false);
 		    }
 		});
 		JButton cancel = new JButton("Cancel");

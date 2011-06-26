@@ -16,10 +16,10 @@ public class buttonArray {
 	public void initArray() {
 		// TODO Auto-generated method stub
 	    lightButton iM,iP,jM,jP;
-	    lightButton nullButton = new lightButton("nullButton\n");
+	    lightButton nullButton = new lightButton();
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
-	    		buttonArray[i][j] = new lightButton("i:" +Integer.toString(i) + " j:" +Integer.toString(j) +"\n");
+	    		buttonArray[i][j] = new lightButton();
 	    		buttonArray[i][j].addActionListener(buttonArray[i][j]);
 	    		buttonArray[i][j].setLabel(Integer.toString(i) + Integer.toString(j));
 	    	}

@@ -11,15 +11,11 @@ public class lightButton extends Button implements ActionListener {
 	 */
 	private static final long serialVersionUID = -4805142080452734635L;
 	boolean on;
-	lightButton mJ;
-	lightButton pJ;
-	lightButton mI;
-	lightButton pI;
-	String id;
-	
-	public lightButton(String id) {
-		// TODO Auto-generated constructor stub
-		this.id = id;
+	private lightButton mJ;
+	private lightButton pJ;
+	private lightButton mI;
+	private lightButton pI;
+	public lightButton() {
 		this.toggle();
 	}
 	public void toggle() {
@@ -53,10 +49,10 @@ public class lightButton extends Button implements ActionListener {
 	public void toggleWNeb() {
 		// TODO Auto-generated method stub
 		this.toggle();
-		mI.toggle();
-		pI.toggle();
-		mJ.toggle();
-		pJ.toggle();
+		this.mI.toggle();
+		this.pI.toggle();
+		this.mJ.toggle();
+		this.pJ.toggle();
 		}
 	
 }

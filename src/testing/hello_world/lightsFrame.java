@@ -54,7 +54,7 @@ public class lightsFrame extends JFrame {
 	    redrawMItem.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent evt) {
-		        mLightScroll.redrawButtons(4,4);
+		        mLightScroll.redrawButtons();
 		    }
 		});
 	    options.add(redrawMItem);
