@@ -2,14 +2,16 @@ package testing.hello_world;
 
 import java.util.Random;
 
-import javax.swing.JFrame;
+import javax.swing.JComponent;
 
 public class buttonArray {
 	private lightButton[][] buttonArray;
-	private int ival, jval;
+	final private int ival, jval;
 	public buttonArray(int ival, int jval) {
 		// TODO Auto-generated constructor stub
 		buttonArray = new lightButton[ival][jval];
+		this.ival=ival;
+		this.jval=jval;
 	}
 	public void initArray() {
 		// TODO Auto-generated method stub
@@ -60,7 +62,7 @@ public class buttonArray {
 	    	}
 	    }
 	}
-	public void addToFrame(JFrame frame) {
+	public void addToFrame(JComponent frame) {
 		// TODO Auto-generated method stub
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
