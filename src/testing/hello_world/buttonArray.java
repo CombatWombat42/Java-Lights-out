@@ -115,7 +115,7 @@ public class buttonArray {
 			str = this.ival + ":";
 		}
 		if(jval<10){
-			str += "0" + this.jval + "	:";
+			str += "0" + this.jval + ":";
 		} else {
 			str += this.jval + ":";
 		}

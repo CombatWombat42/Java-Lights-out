@@ -106,7 +106,7 @@ public class buttonVComp extends JPanel {
 	/**
 	 * Load a button array from string. Allows saveing of the game
 	 * an example  of a load string of a "+" in the middle of a 5x5 game is: 05:05:0000000100011100010000000
-	 * an example of a random 5x4 load string is: 05:04	:11111011111100101111
+	 * an example of a random 5x4 load string is: 05:04:11111011111100101111
 	 *
 	 * @param loadString the string from which to load should take the form of "%2iSize:%2jSize:[0|1]..."
 	 *
@@ -118,7 +118,7 @@ public class buttonVComp extends JPanel {
 		for(int j = 0; j < iVal;j++){
 			for(int i = 0; i < jVal;i++)
 			//System.out.print(loadString.charAt(i) +"["+ i + "]]");
-			mButtons.setButtonAt(i,j,Integer.parseInt(String.valueOf(loadString.charAt(i*iVal+j+HEADER_OFFSET+1))));
+			mButtons.setButtonAt(i,j,Integer.parseInt(String.valueOf(loadString.charAt(i*iVal+j+HEADER_OFFSET))));
 		}
 		this.revalidate();
 	}
