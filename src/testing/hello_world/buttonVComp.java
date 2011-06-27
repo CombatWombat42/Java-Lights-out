@@ -109,12 +109,24 @@ public class buttonVComp extends JPanel {
 	 * an example of a random 5x4 load string is: 05:04:11111011111100101111
 	 *
 	 * @param loadString the string from which to load should take the form of "%2iSize:%2jSize:[0|1]..."
+	 * @throws BadInputFileException If the input file is bad throw exception
 	 *
 	 */
-	public void loadFromString(String loadString) {
-		int iVal = Integer.parseInt((String.valueOf(loadString.charAt(0))).toString()+(String.valueOf(loadString.charAt(1))).toString());
-		int jVal = Integer.parseInt((String.valueOf(loadString.charAt(3))).toString()+(String.valueOf(loadString.charAt(4))).toString());
+	public void loadFromString(String loadString) throws BadInputFileException {
+		int iVal = 0;
+		int jVal = 0;
+		try{
+			iVal = Integer.parseInt((String.valueOf(loadString.charAt(0))).toString()+(String.valueOf(loadString.charAt(1))).toString());
+			jVal = Integer.parseInt((String.valueOf(loadString.charAt(3))).toString()+(String.valueOf(loadString.charAt(4))).toString());
+		}catch (NumberFormatException e){
+			throw new BadInputFileException();			
+		}
+		//System.out.print(iVal*jVal + ":" + loadString.length() + "\n");
 		//TODO throw exception if iVal*jVal != loadString legnth + HEADER_OFFSET (+1)
+		if(iVal+jVal+HEADER_OFFSET != loadString.length()){
+			throw new BadInputFileException();
+		}
+		//TODO resize properly
 		for(int j = 0; j < iVal;j++){
 			for(int i = 0; i < jVal;i++)
 			//System.out.print(loadString.charAt(i) +"["+ i + "]]");

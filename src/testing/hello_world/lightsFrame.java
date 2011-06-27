@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
@@ -97,6 +98,12 @@ public class lightsFrame extends JFrame {
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					} catch (BadInputFileException e) {
+						JOptionPane.showMessageDialog(mLightPane,
+							    "The file you selected is not a valid savegame file",
+							    "Bad Input File",
+							    JOptionPane.ERROR_MESSAGE);
+						//e.printStackTrace();
 					}
 					try {
 						loadFileReader.close();
