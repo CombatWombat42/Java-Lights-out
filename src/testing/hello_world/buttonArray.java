@@ -135,12 +135,13 @@ public class buttonArray {
 	 * @param parseInt the value of the button
 	 */
 	public void setButtonAt(int i, int j, int parseInt) {
+		//the toggle is a hack to make the buttons the right color
 		if(parseInt==0){
-			buttonArray[i][j].setOn(true);
-			buttonArray[i][j].toggle();
+			this.buttonArray[i][j].setOn(true);
+			this.buttonArray[i][j].toggle();
 		}else if(parseInt==1){
-			buttonArray[i][j].setOn(false);
-			buttonArray[i][j].toggle();
+			this.buttonArray[i][j].setOn(false);
+			this.buttonArray[i][j].toggle();
 		}else{
 			//throw error
 		}
