@@ -17,6 +17,7 @@ public class Java_hello_world {
 	 */
 	public static void main(String[] args) {
 		//TODO setup save
+		//TODO throw excption if too big of number
 	    @SuppressWarnings("unused")
 		lightsFrame frame = new lightsFrame("HelloWorldSwing");
 	}

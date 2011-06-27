@@ -87,4 +87,25 @@ public class lightButton extends Button implements ActionListener {
 		this.pJ.toggle();
 		}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.Component#toString()
+	 * write out the button status, "1" is true "0" false
+	 */
+	@Override
+	public String toString(){
+		if(this.on){
+			return "1";
+		} else {
+			return "0";
+		}
+	}
+
+	public boolean isOn() {
+		return on;
+	}
+
+	public void setOn(boolean on) {
+		this.on = on;
+	}
+	
 }

@@ -50,9 +50,12 @@ public class buttonVComp extends JPanel {
 	public void setmJval(int mJval) {
 		this.mJval = mJval;
 	}
+	private buttonArray mButtons;
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 8250550689045737102L;
+
+	private static final int HEADER_OFFSET = 6;
 	
 	/** The layout manager. */
 	private GridLayout mLayoutManager;
@@ -67,7 +70,7 @@ public class buttonVComp extends JPanel {
 		this.mIval = ival;
 		this.mJval = jval;
 		// create a pane of buttons
-	    buttonArray mButtons = new buttonArray(ival,jval);
+	    mButtons = new buttonArray(ival,jval);
 	    mButtons.initArray();
 
 	    this.mLayoutManager = new GridLayout(ival,jval);
@@ -81,7 +84,7 @@ public class buttonVComp extends JPanel {
 	 */
 	public void redrawButtons(){
 		this.removeAll();
-		buttonArray mButtons = new buttonArray(mIval,mJval);
+		mButtons = new buttonArray(mIval,mJval);
 		mButtons.initArray();
 	    mButtons.randomiseButtons();
 	    mButtons.addToFrame(this);
@@ -89,6 +92,32 @@ public class buttonVComp extends JPanel {
 	    this.mLayoutManager.setRows(mIval);
 	    this.repaint();
 	    this.revalidate();
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.awt.Component#toString()
+	 * Prints the string that represents the mButtons array contained on this component
+	 */
+	@Override
+	public String toString(){
+		return this.mButtons.toString();
+	}
+	
+	/**
+	 * Load a button array from string. Allows saveing of the game
+	 *
+	 * @param loadString the string from which to load should take the form of "%2iSize:%2jSize:[0|1]..."
+	 */
+	public void loadFromString(String loadString) {
+		int iVal = Integer.parseInt((String.valueOf(loadString.charAt(0))).toString()+(String.valueOf(loadString.charAt(1))).toString());
+		int jVal = Integer.parseInt((String.valueOf(loadString.charAt(3))).toString()+(String.valueOf(loadString.charAt(4))).toString());
+		//TODO throw exception if iVal*jVal != loadString legnth + HEADER_OFFSET (+1)
+		for(int j = 0; j < iVal;j++){
+			for(int i = 0; i < jVal;i++)
+			//System.out.print(loadString.charAt(i) +"["+ i + "]]");
+			mButtons.setButtonAt(i,j,Integer.parseInt(String.valueOf(loadString.charAt(i*j+HEADER_OFFSET))));
+		}
+		this.revalidate();
 	}
 	
 }

@@ -91,17 +91,60 @@ public class buttonArray {
 	/**
 	 * Adds the buttons to holder 
 	 *
-	 * @param frame the frame
+	 * @param component the component which to add the buttons to
 	 */
-	public void addToFrame(JComponent frame) {
+	public void addToFrame(JComponent component) {
 		// add buttons to the holder component
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
-	    		frame.add(buttonArray[i][j]);
+	    		component.add(buttonArray[i][j]);
 	    	}
 	    }
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 * save out size seperated by ":" then walk i by j and save the string value of each button
+	 */
+	@Override
+	public String toString(){
+		String str;
+		if(ival<10){
+			str = "0" + this.ival + ":";
+		} else {
+			str = this.ival + ":";
+		}
+		if(jval<10){
+			str += "0" + this.jval + "	:";
+		} else {
+			str += this.jval + ":";
+		}
+	    for(int i =0;i<ival;i++){
+	    	for(int j =0;j<jval;j++){
+	    		str = str + this.buttonArray[i][j].toString();
+	    	}
+	    }
+		return str;
+		}
 
+	/**
+	 * Sets the button at i,j to parseInt.
+	 *
+	 * @param i the i location of the button to set
+	 * @param j the j location of the button to set
+	 * @param parseInt the value of the button
+	 */
+	public void setButtonAt(int i, int j, int parseInt) {
+		if(parseInt==0){
+			buttonArray[i][j].setOn(true);
+			buttonArray[i][j].toggle();
+		}else if(parseInt==1){
+			buttonArray[i][j].setOn(false);
+			buttonArray[i][j].toggle();
+		}else{
+			//throw error
+		}
+		
+	}
 	
 }
