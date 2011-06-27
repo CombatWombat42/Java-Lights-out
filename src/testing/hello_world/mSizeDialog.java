@@ -9,13 +9,28 @@ import javax.swing.JDialog;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class mSizeDialog creates a dialg for the user to change the size of the puzzle.
+ */
 public class mSizeDialog implements ActionListener {
-	private buttonScroll parent;
-	public mSizeDialog(buttonScroll parent) {
+	
+	/** The parent visulal componen of the dialog. */
+	private buttonVComp parent;
+	
+	/**
+	 * Instantiates a new my size dialog.
+	 *
+	 * @param parent the parent visulal componen of the dialog
+	 */
+	public mSizeDialog(buttonVComp parent) {
 		// create a zize dialog and store parent
 		this.parent = parent;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// Generate the dialog to select game size

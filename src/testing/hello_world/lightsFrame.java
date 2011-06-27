@@ -10,26 +10,47 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+/**
+ * The Class lightsFrame.
+ */
 public class lightsFrame extends JFrame {
-	public static final int JVAL = 3;
-	public static final int IVAL = 3;
-	private JMenuBar menuBar;
-	private JMenu options;
-	private buttonScroll mLightScroll;
 	
+	/** The Constant inital j size of the array. */
+	public static final int JVAL = 3;
+	
+	/** The Constant inital i size of the array. */
+	public static final int IVAL = 3;
+	
+	/** The menu bar. */
+	private JMenuBar menuBar;
+	
+	/** The options menu. */
+	private JMenu options;
+	
+	/** My light pane. */
+	private buttonVComp mLightPane;
+	
+	/**
+	 * Instantiates a new lights frame.
+	 *
+	 * @param string the title of the frame
+	 */
 	public lightsFrame(String string) {
 		// Create a frame that contains the game and a menu for setting options
 		this.setTitle(string);
-	    this.mLightScroll = new buttonScroll(IVAL,JVAL);
+	    this.mLightPane = new buttonVComp(IVAL,JVAL);
 	    initMenu();
 	    this.setJMenuBar(this.menuBar);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.add(mLightScroll);
+	    this.add(mLightPane);
 	    this.pack();
 	    this.setSize(400, 400);
 	    this.setVisible(true);
 	}
 
+	/**
+	 * initalises the menu.
+	 */
 	private void initMenu() {
 		// create the menu for the program
 	    this.menuBar = new JMenuBar();
@@ -45,23 +66,21 @@ public class lightsFrame extends JFrame {
 	    sizeMItem.getAccessibleContext().setAccessibleDescription(
 	    "Set the size of the puzzle");
 	    options.add(sizeMItem);
-	    mSizeDialog sizeDia = new mSizeDialog(this.mLightScroll);
+	    mSizeDialog sizeDia = new mSizeDialog(this.mLightPane);
 	    sizeMItem.addActionListener(sizeDia);
 	    JMenuItem redrawMItem = new JMenuItem("Redraw",
 	    		KeyEvent.VK_R);
 	    redrawMItem.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent evt) {
-		        mLightScroll.redrawButtons();
+		        mLightPane.redrawButtons();
 		    }
 		});
 	    options.add(redrawMItem);
 	}
 
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 2681439085050782109L;
 
 }

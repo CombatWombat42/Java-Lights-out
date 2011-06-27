@@ -4,15 +4,33 @@ import java.util.Random;
 
 import javax.swing.JComponent;
 
+/**
+ * The Class buttonArray.
+ */
 public class buttonArray {
+	
+	/** The button array. */
 	private lightButton[][] buttonArray;
-	final private int ival, jval;
+	
+	/** The sizes of the array. */
+	private int ival, jval;
+	
+	/**
+	 * Instantiates a new button array.
+	 *
+	 * @param ival the ival
+	 * @param jval the jval
+	 */
 	public buttonArray(int ival, int jval) {
 		// create an array of lightButtons 
 		buttonArray = new lightButton[ival][jval];
 		this.ival=ival;
 		this.jval=jval;
 	}
+	
+	/**
+	 * Initalises the array and sets up the action listeners
+	 */
 	public void initArray() {
 		//initalize the array of buttons 
 	    lightButton iM,iP,jM,jP;
@@ -22,7 +40,8 @@ public class buttonArray {
 	    	for(int j =0;j<jval;j++){
 	    		buttonArray[i][j] = new lightButton();
 	    		buttonArray[i][j].addActionListener(buttonArray[i][j]);
-	    		buttonArray[i][j].setLabel(Integer.toString(i) + Integer.toString(j));
+	    		//label the buttons with x and y location
+	    		//buttonArray[i][j].setLabel(Integer.toString(i) + Integer.toString(j));
 	    	}
 	    }
 	    //add neibors to each button
@@ -53,9 +72,12 @@ public class buttonArray {
 	    }
 		
 	}
+	
+	/**
+	 * randomise the buttons to create a hard puzzel, should not create unsolvible puzzles
+	 */
 	public void randomiseButtons() {
-		// randomise the buttons to create a hard puzzel
-		// TODO fix the unsolvible problem
+		// go through all buttons and randomise them by arbitrarily togeling them
 	    Random generator = new Random();
 	    for(int i = 0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
@@ -65,8 +87,14 @@ public class buttonArray {
 	    	}
 	    }
 	}
+	
+	/**
+	 * Adds the buttons to holder 
+	 *
+	 * @param frame the frame
+	 */
 	public void addToFrame(JComponent frame) {
-		// add buttons to the holder
+		// add buttons to the holder component
 	    for(int i =0;i<ival;i++){
 	    	for(int j =0;j<jval;j++){
 	    		frame.add(buttonArray[i][j]);
